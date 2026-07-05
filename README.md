@@ -20,12 +20,18 @@ Built my first actual agent — it can:
 
 It runs in a loop — you ask something, the model figures out if it needs a tool, calls it, gets the data back, and replies with an actual answer instead of "I don't have real-time data."
 
+**Mini Cursor (Day 2)**
+Built a mini version of an AI code editor — you tell it what website to build, and it does it step by step:
+- creates the folder/file structure using shell commands (`executeCommand` tool)
+- writes actual HTML/CSS/JS code directly into files using Node's `fs` module (`writeFile` tool) — switched to this after realizing shell `echo` commands are unreliable on Windows for writing multiline code
+- added a retry wrapper to handle Gemini's free-tier rate limits (429 errors) instead of crashing
+
+This was a good lesson in: not every "it works on my machine" solution is portable, and why a scalable `toolFunctions` lookup object beats writing if-else for every tool.
+
 ## Folder structure
 GEN-AI/
 ├── First-Agent/       # weather + crypto agent
-│   ├── index.js
-│   ├── package.json
-│   └── .env (ignored, has my API keys)
+├── mini-cursor/       # AI website builder agent
 └── README.md
 
 ## Stack
@@ -45,4 +51,4 @@ GEMINI_API_KEY=your_key_here
 - [x] Gemini API setup
 - [x] Function calling
 - [x] First agent (weather + crypto)
-- [ ] whatever's next
+- [x] Mini Cursor — AI agent that builds websites (file system tool + shell tool)
