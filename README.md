@@ -28,10 +28,14 @@ Built a mini version of an AI code editor — you tell it what website to build,
 
 This was a good lesson in: not every "it works on my machine" solution is portable, and why a scalable `toolFunctions` lookup object beats writing if-else for every tool.
 
+**Code Reviewer Agent**
+Built an agent that reads a code file and reviews it for bugs, best practices, and suggestions — using the same function-calling + tool pattern as before, but with a file-reading tool instead of shell/write tools.
+
 ## Folder structure
 GEN-AI/
 ├── First-Agent/       # weather + crypto agent
 ├── mini-cursor/       # AI website builder agent
+├── code-reviewer/     # AI agent that reviews code files for bugs & best practices
 └── README.md
 
 ## Stack
@@ -52,3 +56,4 @@ GEMINI_API_KEY=your_key_here
 - [x] Function calling
 - [x] First agent (weather + crypto)
 - [x] Mini Cursor — AI agent that builds websites (file system tool + shell tool)
+- [x] Code Reviewer Agent
